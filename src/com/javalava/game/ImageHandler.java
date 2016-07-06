@@ -25,7 +25,7 @@ public class ImageHandler {
 	 * 
 	 * @author Rane Lafraze
 	 */
-	public BufferedImage getImage(String path) {
+	public static BufferedImage getImage(String path) {
 		
 		// Prevents NullPointer
 		BufferedImage img = new BufferedImage(10, 10, BufferedImage.TYPE_4BYTE_ABGR_PRE);
@@ -56,7 +56,7 @@ public class ImageHandler {
 	 * 
 	 * @author Rane Lafraze
 	 */
-	public Color getPixelColor(BufferedImage img, int x, int y) {
+	public static Color getPixelColor(BufferedImage img, int x, int y) {
 		Color pixelColor = new Color(img.getRGB(x, y));
 		return pixelColor;
 	}
@@ -81,7 +81,7 @@ public class ImageHandler {
 	 * 
 	 * @author Rane Lafraze
 	 */
-	public BufferedImage drawOntoImage(BufferedImage bufferedImg, String pathToImage, int x, int y, int width, int height) {
+	public static BufferedImage drawOntoImage(BufferedImage bufferedImg, String pathToImage, int x, int y, int width, int height) {
 		
 		bufferedImg = overlayImage(bufferedImg, getImage(pathToImage), x, y, width, height);
 		
@@ -113,7 +113,7 @@ public class ImageHandler {
 	 * 
 	 * @author Rane Lafraze
 	 */
-	public BufferedImage overlayImage(BufferedImage baseImg, BufferedImage overlayingImage, int x, int y, int width, int height) {
+	public static BufferedImage overlayImage(BufferedImage baseImg, BufferedImage overlayingImage, int x, int y, int width, int height) {
 		
 		Graphics2D g2D = baseImg.createGraphics();
 		g2D.setColor(Color.BLACK);
