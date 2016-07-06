@@ -3,7 +3,7 @@ package com.java.javalava.game.MissionTemplate;
 /**
  * 
  * This class will direct the user to a  preferences 
- * panel which will be directed onto the center of the frame
+ * panel which will be shown onto the center of the frame
  * 
  * Options will include
  * 
