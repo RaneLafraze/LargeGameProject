@@ -5,7 +5,6 @@ public class Game {
 		
 		GameFrame frame = new GameFrame();
 		
-		
 		frame.init();
 		
 	}
