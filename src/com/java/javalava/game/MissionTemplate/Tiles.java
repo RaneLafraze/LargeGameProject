@@ -4,15 +4,19 @@ public class Tiles {
 
 	int height;
 	int width;
+	int gridsize;
 	
 	/**
 	 * This sets the height and width of the grid.
-	 * @param width
 	 * @param height
+	 * @param width
 	 */
 	
-	public void setDimensions(int height,int width) {
-		
+	public void setDimensions(int w,int h) {
+
+	height = h;
+	width = w;
+	
 	}
 	
 	public int getHeight() {
@@ -21,5 +25,5 @@ public class Tiles {
 	public int getWidth() {
 		return this.width;
 	}
-	
+		
 }
