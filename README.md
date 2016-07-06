@@ -7,12 +7,10 @@ ToDo List!<br>
 the frame. <br>
 
 * Set up a versatile class that can be used as the default template for all of our missions.
-
-	-Methods-
-	
 	setSize(int height, int width)
-	
 	setTilePicture(BufferedImage pic)
+	
+
 	
 	
 	
