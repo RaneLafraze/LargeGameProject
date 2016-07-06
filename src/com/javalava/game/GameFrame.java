@@ -8,7 +8,7 @@ public class GameFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	// Caps since it is final
-	private final String WINDOW_TITLE = "LargeGame ALPHA 0.0.3";
+	private final String WINDOW_TITLE = "LargeGame ALPHA 0.0.1.1";
 	
 	private GamePanel panel = new GamePanel();
 	
