@@ -66,25 +66,6 @@ public class Tiles {
 		}
 	}
 	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public int getHeight() {
 		return this.height;
