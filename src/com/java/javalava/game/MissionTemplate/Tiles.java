@@ -23,8 +23,8 @@ public class Tiles {
 	width = w;
 	
 	
-	ArrayList<ArrayList<Integer>> XCoordinates = new ArrayList<ArrayList<Integer>>();
-	ArrayList<ArrayList<Integer>> YCoordinates = new ArrayList<ArrayList<Integer>>();
+	ArrayList<ArrayList<ArrayList<Integer>>> XCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
+	ArrayList<ArrayList<ArrayList<Integer>>> YCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
 	
 	/* say x and y are 2
 	 *   
@@ -32,19 +32,59 @@ public class Tiles {
 	 *   [] []
 	 *   [] []
 	 *  2,1 2,2
-	*/
+	 *  This assigns a coordinate value to each tile going left to right, top to bottom
+	 *  
+	 *   0  1
+	 *   [] []
+	 *   [] []
+	 *   3  4
+	 *   
+	 *   the 01234 represents an index on the ArrayList
+	*/   
 	int counter = 0;
 	
+	int widthcounter = 0;
+	int heightcounter = 0;
 	
-	for (gridsize=0; gridsize<=height*width;gridsize++) {
+	//this loop runs through the maximum amount of coordinates your grid needs based on width*height
+	for (gridsize=0; gridsize<=height*width;gridsize++) 
+		{
 		
-		XCoordinates.get(counter).add(1 + counter);
-		YCoordinates.get(counter).add(1 + counter);
+		if(widthcounter <= this.width) 
+		{
+		XCoordinates.get(widthcounter).get(counter).add(counter);
+		widthcounter++;
+		}
 		
-		counter++; 
+		if(heightcounter <= this.height) 
+		{
+		YCoordinates.get(heightcounter).get(counter).add(counter);
+		
+		}
+		
+		counter++;
+		}
 	}
 	
-	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public int getHeight() {
 		return this.height;
