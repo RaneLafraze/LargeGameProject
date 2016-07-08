@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class GlobalVariables {
 	
-	public static int windowWidth = 600;
+	public static int windowWidth = 1000;
 	public static int windowHeight = 600;
 	
 	public static int state = 0;
