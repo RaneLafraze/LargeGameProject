@@ -121,7 +121,7 @@ public class ImageHandler {
 		g2D.dispose();
 		
 		return baseImg;
-		
+	
 	}
 	
 }

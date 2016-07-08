@@ -45,32 +45,6 @@ public class Tiles {
 
 	height = h;
 	width = w;
-	
-	ArrayList<ArrayList<ArrayList<Integer>>> XCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
-	ArrayList<ArrayList<ArrayList<Integer>>> YCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
- 
-	int counter = 0;
-	int widthcounter = 0;
-	int heightcounter = 0;
-	
-	//this loop runs through the amount of coordinate values your grid needs based on width*height
-	for (gridsize=0; gridsize<=height*width;gridsize++) 
-		{
-		
-		if(widthcounter <= this.width) 
-		{
-		XCoordinates.get(widthcounter).get(counter).add(counter);
-		widthcounter++;
-		}
-		
-		if(heightcounter <= this.height) 
-		{
-		YCoordinates.get(heightcounter).get(counter).add(counter);
-		heightcounter++;
-		}
-		
-		counter++;
-		}
 	}
 	
 	
@@ -85,16 +59,25 @@ public class Tiles {
 	public void drawGrid() {
 		
 		int y = 0;
+		int shiftgridy = 30;
 		
 		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
 		
+	
+		while(this.width > 0) {	
 		for(int g=0;g<=this.height;g++) {
-			
-			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, 20, 20);
-			
+			//x position y position
+			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 400 + shiftgridy, 250 + y, 30, 30);
 			y = y + 20;
 			
+			
+			}
+			y=0;
+			this.width--;
+			shiftgridy = shiftgridy + 30;
 		}
+		
+
 		
 		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, 20, 20, 20);
 		
