@@ -1,11 +1,9 @@
 package com.java.javalava.game.MissionTemplate;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import com.javalava.game.GlobalVariables;
 import com.javalava.game.ImageHandler;
-import com.javalava.game.TestState;
 
 public class Tiles {
 
