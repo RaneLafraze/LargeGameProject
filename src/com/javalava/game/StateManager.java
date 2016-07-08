@@ -1,5 +1,7 @@
 package com.javalava.game;
 
+import java.awt.image.BufferedImage;
+
 public class StateManager implements Runnable {
 	
 	GameState gameState;
@@ -30,6 +32,9 @@ public class StateManager implements Runnable {
 			if(GlobalVariables.state == 1) {
 				
 				gameState.initalizeObjects();
+				GlobalVariables.screen = new BufferedImage(GlobalVariables.windowWidth, GlobalVariables.windowHeight, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+				// Clear the "screen" of any past drawings
+				
 				while(GlobalVariables.state == 1) {
 					gameState.update();
 					delay(5); // For stability
