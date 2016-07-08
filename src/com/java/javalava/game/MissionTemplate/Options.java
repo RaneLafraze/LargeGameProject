@@ -2,10 +2,16 @@ package com.java.javalava.game.MissionTemplate;
 
 import java.awt.image.BufferedImage;
 
+import com.javalava.game.GlobalVariables;
 import com.javalava.game.ImageHandler;
 
 
 public class Options {
+	
+	private BufferedImage optionPanel = new BufferedImage(10, 10, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+	private String optionName = "";
+	
+	private boolean optionActive = false;
 	
 	/**
 	 * 
@@ -20,36 +26,109 @@ public class Options {
 	 * Audio?
 	 * Tile color?
 	 * 
+	 * @param optionName
+	 * the name of this option
 	 * 
-	 * @author Matt
+	 * @author Matt & Rane Lafraze
 	 *
 	 */
-	public Options() {
+	public Options(String optionName) {
+		
+		this.optionName = optionName;
+		
+		initOption();
+		
+	}
+	
+	private void initOption() {
+		
+		getPanelImage();
+		
+		startOptionMechanics();
 		
 	}
 	
 	/**
 	 * This method will load the needed layout (which is based on
-	 * the given string) and return that image to be drawn to the
+	 * the option's name) and update the image to be drawn to the
 	 * screen.
-	 * 
-	 * @param optionPanelRequested
-	 * the name of the option panel desired
-	 * @return
-	 * An image of the requested panel.
 	 * 
 	 * @author Rane Lafraze
 	 */
-	public BufferedImage showPanel(String optionPanelRequested) {
-		
-		BufferedImage panel = new BufferedImage(10, 10, BufferedImage.TYPE_4BYTE_ABGR_PRE);
-		
-		if(optionPanelRequested.equalsIgnoreCase("zoom")) {
-			panel = ImageHandler.getImage("assets/images/panels/zoomPanel.png");
+	private void getPanelImage() {
+				
+		if(optionName.equalsIgnoreCase("zoom")) {
+			optionPanel = ImageHandler.getImage("assets/images/panels/zoomPanel.png");
 		}
+				
+	}
+	
+	private void startOptionMechanics() {
 		
-		return panel;
+		optionActive = true;
 		
+		Thread mechanicsUpdate = new Thread() {
+			public void run() {
+				
+				int clickX = 0;
+				int clickY = 0;
+				
+				while(optionActive) {
+					
+					clickX = GlobalVariables.mouseClickX;
+					clickY = GlobalVariables.mouseClickY;
+					
+					// Decrease zoom
+					if((clickX > 535) && (clickX < 625) && (clickY > 405) && (clickY < 490)) {
+						
+						// Change the tile size to be smaller
+						GlobalVariables.tileSize = GlobalVariables.tileSize - 10;
+						GlobalVariables.mouseClickX = 0;
+						GlobalVariables.mouseClickY = 0;
+						
+					}
+					
+					delay(5); // For stability
+				}
+				
+			}
+		};
+		mechanicsUpdate.start();
+		
+	}
+	
+	/**
+	 * Delays, or waits, for the given amount of milliseconds.
+	 * 
+	 * 
+	 * @param millis
+	 * the time, in milliseconds (1 / 1000 of second) to delay
+	 * 
+	 * @author RaneLafraze
+	 */
+	private void delay(int millis) {
+		try {
+			Thread.sleep(millis);
+		} catch(InterruptedException ie) {
+			ie.printStackTrace();
+		}
+	}
+	
+	// Get / Set methods
+	
+	public String getOptionName() {
+		return optionName;
+	}
+	
+	public BufferedImage getOptionPanel() {
+		return optionPanel;
+	}
+	
+	public boolean getOptionActive() {
+		return optionActive;
+	}
+	public void setOptionActive(boolean optionActive) {
+		this.optionActive = optionActive;
 	}
 	
 }
