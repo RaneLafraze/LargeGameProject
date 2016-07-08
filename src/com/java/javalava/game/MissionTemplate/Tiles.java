@@ -70,6 +70,28 @@ public class Tiles {
 	}
 	public int getWidth() {
 		return this.width;
+<<<<<<< HEAD
+=======
+	}
+	
+	
+	public void drawGrid() {
+		
+		int y = 0;
+		
+		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
+		
+		for(int g=0;g<=this.height;g++) {
+			
+			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, 20, 20);
+			
+			y = y + 20;
+			
+		}
+		
+		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, 20, 20, 20);
+		
+>>>>>>> refs/remotes/largegame/master
 	}
 		
 }
