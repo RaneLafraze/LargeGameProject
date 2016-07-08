@@ -65,7 +65,7 @@ public class Tiles {
 		
 		for(int g=0;g<=this.height;g++) {
 			
-			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, 25, 25);
+			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, GlobalVariables.tileSize, GlobalVariables.tileSize);
 			
 			y = y + 20;
 			
