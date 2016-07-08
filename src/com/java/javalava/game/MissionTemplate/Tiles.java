@@ -42,27 +42,10 @@ public class Tiles {
 	 */
 	
 	public void setDimensions(int w,int h) {
-		height = h;
-		width = w;
-		
+
+	height = h;
+	width = w;
 	}
-
-
-
-	public void drawGrid() {
-	
-	TestState teststate = new TestState();
-	
-	grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
-	
-	int ycount = 20;
-	//if it has 5 height, this will generate 5 rows
-	for(int g=0;g<=this.height;g++) {
-		
-		ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, ycount, 20, 20);
-		ycount = ycount + 10;
-	}
-}
 	
 	
 	public int getHeight() {
@@ -70,28 +53,34 @@ public class Tiles {
 	}
 	public int getWidth() {
 		return this.width;
-<<<<<<< HEAD
-=======
 	}
 	
 	
 	public void drawGrid() {
 		
 		int y = 0;
+		int shiftgridy = 30;
 		
 		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
 		
+	
+		while(this.width > 0) {	
 		for(int g=0;g<=this.height;g++) {
-			
-			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, 20, 20);
-			
+			//x position y position
+			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 400 + shiftgridy, 250 + y, 30, 30);
 			y = y + 20;
 			
+			
+			}
+			y=0;
+			this.width--;
+			shiftgridy = shiftgridy + 30;
 		}
+		
+
 		
 		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, 20, 20, 20);
 		
->>>>>>> refs/remotes/largegame/master
 	}
 		
 }
