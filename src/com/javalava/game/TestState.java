@@ -5,9 +5,8 @@ import java.awt.image.BufferedImage;
 public class TestState implements State {
 	
 	// Objects needed in this state
-	BufferedImage displayImage;
-	ImageHandler imgHandler;	
 	
+	BufferedImage grasstile;
 	
 	// Variables used in this state
 	
@@ -16,19 +15,24 @@ public class TestState implements State {
 		
 	}
 	
-	
+	@Override
 	public void initalizeObjects() {
 		
-		imgHandler = new ImageHandler();
-		
-		displayImage = imgHandler.getImage("assets/images/misc/testImage.png");
+		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
 		
 	}
-
+	
+	
+	
+	public BufferedImage getGrassTile() {
+				
+		return grasstile;
+	}
+	
 	public void update() {
 		
-		GlobalVariables.screen = imgHandler.overlayImage(GlobalVariables.screen, displayImage, 0, 0, GlobalVariables.windowWidth, GlobalVariables.windowHeight);
-		
+		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 40, 40, GlobalVariables.windowWidth, GlobalVariables.windowHeight);
+	
 	}
 
 }
