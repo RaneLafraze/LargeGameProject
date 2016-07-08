@@ -42,36 +42,27 @@ public class Tiles {
 	 */
 	
 	public void setDimensions(int w,int h) {
-
-	height = h;
-	width = w;
-	
-	ArrayList<ArrayList<ArrayList<Integer>>> XCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
-	ArrayList<ArrayList<ArrayList<Integer>>> YCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
- 
-	int counter = 0;
-	int widthcounter = 0;
-	int heightcounter = 0;
-	
-	//this loop runs through the amount of coordinate values your grid needs based on width*height
-	for (gridsize=0; gridsize<=height*width;gridsize++) 
-		{
+		height = h;
+		width = w;
 		
-		if(widthcounter <= this.width) 
-		{
-		XCoordinates.get(widthcounter).get(counter).add(counter);
-		widthcounter++;
-		}
-		
-		if(heightcounter <= this.height) 
-		{
-		YCoordinates.get(heightcounter).get(counter).add(counter);
-		heightcounter++;
-		}
-		
-		counter++;
-		}
 	}
+
+
+
+	public void drawGrid() {
+	
+	TestState teststate = new TestState();
+	
+	grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
+	
+	int ycount = 20;
+	//if it has 5 height, this will generate 5 rows
+	for(int g=0;g<=this.height;g++) {
+		
+		ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, ycount, 20, 20);
+		ycount = ycount + 10;
+	}
+}
 	
 	
 	public int getHeight() {
@@ -79,22 +70,6 @@ public class Tiles {
 	}
 	public int getWidth() {
 		return this.width;
-	}
-	
-	
-	public void drawGrid() {
-	
-	TestState teststate = new TestState();
-	grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
-	
-	for(int g=0;g<=this.height;g++) {
-		
-		ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, 20, 20, 20);
-		
-	}
-	
-	GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, 20, 20, 20);
-	
 	}
 		
 }

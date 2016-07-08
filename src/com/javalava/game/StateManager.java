@@ -2,7 +2,7 @@ package com.javalava.game;
 
 public class StateManager implements Runnable {
 	
-	TestState testState;
+	TestState GameState;
 	
 	/**
 	 * Manages the possible states of the game.
@@ -12,7 +12,7 @@ public class StateManager implements Runnable {
 	public StateManager() {
 		
 		// Initialize the states here
-		testState = new TestState();
+		GameState = new TestState();
 		
 	}
 	
@@ -23,9 +23,9 @@ public class StateManager implements Runnable {
 			
 			if(GlobalVariables.state == 1) {
 				
-				testState.initalizeObjects();
+				GameState.initalizeObjects();
 				while(GlobalVariables.state == 1) {
-					testState.update();
+					GameState.update();
 					delay(5); // For stability
 				}
 				
