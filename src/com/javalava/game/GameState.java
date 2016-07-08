@@ -2,16 +2,15 @@ package com.javalava.game;
 
 import java.awt.image.BufferedImage;
 
-public class TestState implements State {
+import com.java.javalava.game.MissionTemplate.Tiles;
+
+public class GameState implements State {
 	
-	// Objects needed in this state
-	
+
 	BufferedImage grasstile;
+
 	
-	// Variables used in this state
-	
-	
-	public TestState() {
+	public GameState() {
 		
 	}
 	
@@ -21,9 +20,7 @@ public class TestState implements State {
 		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
 		
 	}
-	
-	
-	
+
 	public BufferedImage getGrassTile() {
 				
 		return grasstile;
@@ -31,7 +28,9 @@ public class TestState implements State {
 	
 	public void update() {
 		
-		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 40, 40, GlobalVariables.windowWidth, GlobalVariables.windowHeight);
+		Tiles tiles = new Tiles();
+		tiles.setDimensions(5, 5);
+		tiles.drawGrid();
 	
 	}
 
