@@ -6,7 +6,8 @@ public class TestState implements State {
 	
 	// Objects needed in this state
 	BufferedImage displayImage;
-	ImageHandler imgHandler;
+	ImageHandler imgHandler;	
+	
 	
 	// Variables used in this state
 	
