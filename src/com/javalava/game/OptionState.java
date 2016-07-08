@@ -26,14 +26,14 @@ public class OptionState implements State {
 	@Override
 	public void initalizeObjects() {
 		
-		options = new Options();
-		
-		panel = options.showPanel("zoom");
-		
+		options = new Options("zoom");
+				
 	}
 
 	@Override
 	public void update() {
+		
+		panel = options.getOptionPanel();
 		
 		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, panel, 0, 0, GlobalVariables.windowWidth, GlobalVariables.windowHeight);
 		
