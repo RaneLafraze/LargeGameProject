@@ -1,11 +1,9 @@
 package com.java.javalava.game.MissionTemplate;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import com.javalava.game.GlobalVariables;
 import com.javalava.game.ImageHandler;
-import com.javalava.game.TestState;
 
 public class Tiles {
 
@@ -59,28 +57,26 @@ public class Tiles {
 	public void drawGrid() {
 		
 		int y = 0;
-		int shiftgridy = 30;
+		int shiftgridy = GlobalVariables.tileSize;
 		
 		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
 		
 	
 		while(this.width > 0) {	
-		for(int g=0;g<=this.height;g++) {
+		for(int g=0;g<this.height;g++) {
 			//x position y position
-			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 400 + shiftgridy, 250 + y, 30, 30);
-			y = y + 20;
+			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 400 + shiftgridy, 250 + y, GlobalVariables.tileSize, GlobalVariables.tileSize);
+			y = y + GlobalVariables.tileSize;
 			
 			
 			}
 			y=0;
 			this.width--;
-			shiftgridy = shiftgridy + 30;
+			shiftgridy = shiftgridy + GlobalVariables.tileSize;
 		}
 		
 
-		
-		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, 20, 20, 20);
-		
+				
 	}
 		
 }

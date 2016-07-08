@@ -41,6 +41,7 @@ public class GameFrame extends JFrame {
 		this.setResizable(false);
 		
 		// Add mouse and key listeners here
+		this.addMouseListener(new MouseInteraction());
 		this.add("Center", panel);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
