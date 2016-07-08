@@ -46,31 +46,6 @@ public class Tiles {
 	height = h;
 	width = w;
 	
-	ArrayList<ArrayList<ArrayList<Integer>>> XCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
-	ArrayList<ArrayList<ArrayList<Integer>>> YCoordinates = new ArrayList<ArrayList<ArrayList<Integer>>>();
- 
-	int counter = 0;
-	int widthcounter = 0;
-	int heightcounter = 0;
-	
-	//this loop runs through the amount of coordinate values your grid needs based on width*height
-	for (gridsize=0; gridsize<=height*width;gridsize++) 
-		{
-		
-		if(widthcounter <= this.width) 
-		{
-		XCoordinates.get(widthcounter).get(counter).add(counter);
-		widthcounter++;
-		}
-		
-		if(heightcounter <= this.height) 
-		{
-		YCoordinates.get(heightcounter).get(counter).add(counter);
-		heightcounter++;
-		}
-		
-		counter++;
-		}
 	}
 	
 	
@@ -90,7 +65,7 @@ public class Tiles {
 		
 		for(int g=0;g<=this.height;g++) {
 			
-			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, 20, 20);
+			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 20, y, 25, 25);
 			
 			y = y + 20;
 			
