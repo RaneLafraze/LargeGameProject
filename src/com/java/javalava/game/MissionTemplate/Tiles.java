@@ -7,39 +7,20 @@ import com.javalava.game.ImageHandler;
 
 public class Tiles {
 
-	int height;
-	int width;
+	static int height;
+	static int width;
 	int gridsize;
 	BufferedImage grasstile;
 	BufferedImage gridgrasstile;
 	
-	
-	
 	/**
-	 * This sets the height and width of the grid and assigns a grid value to each tile based upon its location
-	 * 	
-	 *  say x and y are 2
-	 *   
-	 *  1,1 2,1 
-	 *   [] []
-	 *   [] []
-	 *  2,1 2,2
-	 *  This assigns a coordinate value to each tile going left to right, top to bottom
-	 *  
-	 *   0  1
-	 *   [] []
-	 *   [] []
-	 *   3  4
-	 *   
-	 *   the 01234 represents an index on the ArrayList
-	 *    
-	 * @param height
-	 * @param width
 	 * 
-	 * @author Matt
+	 * This sets the amount of tiles to the width (x) and height (y)
 	 * 
+	 * @param w
+	 * @param h
+	 * @author David
 	 */
-	
 	public void setDimensions(int w,int h) {
 
 	height = h;
@@ -56,35 +37,29 @@ public class Tiles {
 	
 	
 	public void drawGrid() {
-		
-		int y = 0;
-		int shiftgridy = 30;
-		
-		gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
-		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
-		
-	
-		while(this.width > 0) {	
-		for(int g=0;g<this.height;g++) {
-			//x position y position
-
-			ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + shiftgridy, 210 + y, 30, 30);
-			y = y + 30;
-
-
-			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 400 + shiftgridy, 250 + y, GlobalVariables.tileSize, GlobalVariables.tileSize);
-			y = y + GlobalVariables.tileSize;
-
-
-			
-			}
-			y=0;
-			this.width--;
-
-			shiftgridy = shiftgridy + GlobalVariables.tileSize;
-
+		  
+		  int y = 0;
+		  int shiftgridy = 30;
+		  
+		  gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
+		  grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
+		  
+		 
+		  while(width > 0) { 
+		  for(int g=0;g<height;g++) {
+		   //x position y position
+		   ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + shiftgridy, 210 + y, 30, 30);
+		   y = y + 30;
+		   
+		   
+		   }
+		   y=0;
+		   width--;
+		   shiftgridy = shiftgridy + 31;
+		  }
+		 
+		  
 		}
-	}
 		
 }
 
