@@ -27,14 +27,7 @@ public class StateManager implements Runnable {
 			
 			if(GlobalVariables.state == 1) {
 				
-				gameState.initalizeObjects();
-				GlobalVariables.screen = new BufferedImage(GlobalVariables.windowWidth, GlobalVariables.windowHeight, BufferedImage.TYPE_4BYTE_ABGR_PRE);
-				// Clear the "screen" of any past drawings
-				
-				while(GlobalVariables.state == 1) {
-					gameState.update();
-					delay(5); // For stability
-				}
+				executeState(gameState);
 				
 			}
 			// Add more states here
@@ -42,6 +35,23 @@ public class StateManager implements Runnable {
 			
 		}
 	}
+	
+	private void executeState(State state) {
+		
+		// Save the state to monitor when it changes
+		int currentState = GlobalVariables.state;
+		
+		GlobalVariables.screen = new BufferedImage(GlobalVariables.windowWidth, GlobalVariables.windowHeight, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+		// Clear the "screen" of any past drawings
+		
+		state.initalizeObjects();
+		while(GlobalVariables.state == currentState) {
+			state.update();
+			delay(5); // For stability
+		}
+		
+	}
+	
 	
 	/**
 	 * Delays, or waits, for the given amount of milliseconds.
