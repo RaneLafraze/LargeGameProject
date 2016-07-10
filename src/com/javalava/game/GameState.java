@@ -8,6 +8,8 @@ public class GameState implements State {
 	
 
 	BufferedImage grasstile;
+	BufferedImage gridgrasstile;
+	
 
 	
 	public GameState() {
@@ -18,18 +20,14 @@ public class GameState implements State {
 	public void initalizeObjects() {
 		
 		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
+		gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
 		
-	}
-
-	public BufferedImage getGrassTile() {
-				
-		return grasstile;
 	}
 	
 	public void update() {
 		
 		Tiles tiles = new Tiles();
-		tiles.setDimensions(5, 5);
+		tiles.setDimensions(3,4 );
 		tiles.drawGrid();
 	
 	}

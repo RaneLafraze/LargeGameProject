@@ -41,7 +41,7 @@ public class StateManager implements Runnable {
 					
 					counter++;
 					if(counter > 500) {
-						GlobalVariables.state = 2;
+						//GlobalVariables.state = 2;
 						counter = 0;
 					}
 					
