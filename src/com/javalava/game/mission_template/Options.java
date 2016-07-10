@@ -1,4 +1,4 @@
-package com.java.javalava.game.MissionTemplate;
+package com.javalava.game.mission_template;
 
 import java.awt.image.BufferedImage;
 

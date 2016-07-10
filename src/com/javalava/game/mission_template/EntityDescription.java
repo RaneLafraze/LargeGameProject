@@ -1,4 +1,4 @@
-package com.java.javalava.game.MissionTemplate;
+package com.javalava.game.mission_template;
 
 /**
  * This class is used to describe the selected entity such as terrain or units 

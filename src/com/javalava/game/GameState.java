@@ -2,7 +2,7 @@ package com.javalava.game;
 
 import java.awt.image.BufferedImage;
 
-import com.java.javalava.game.MissionTemplate.Tiles;
+import com.javalava.game.mission_template.Tiles;
 
 public class GameState implements State {
 	

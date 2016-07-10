@@ -1,4 +1,4 @@
-package Allies;
+package com.javalava.game.allies;
 /**
  * This Class will serve as the basic unit template for all other Enemies.
  * It will include:

@@ -1,4 +1,4 @@
-package Enemies;
+package com.javalava.game.enemies;
 
 public class EnemyExample extends BasicEnemyUnitTemplate {
 

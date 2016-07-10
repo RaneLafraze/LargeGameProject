@@ -1,4 +1,4 @@
-package Enemies;
+package com.javalava.game.enemies;
 /**
  * This Class will serve as the basic unit template for all other Enemies.
  * It will include:
