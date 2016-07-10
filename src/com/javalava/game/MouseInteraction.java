@@ -16,8 +16,8 @@ public class MouseInteraction implements MouseListener {
 			
 	public void mouseClicked(MouseEvent e) {
 		
-		clickX = e.getXOnScreen();
-		clickY = e.getYOnScreen();
+		clickX = e.getX();
+		clickY = e.getY();
 		buttonType = e.getButton();
 		
 		GlobalVariables.mouseClickX = clickX;

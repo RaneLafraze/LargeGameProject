@@ -2,6 +2,8 @@ package com.javalava.game;
 
 import javax.swing.JFrame;
 
+import com.java.javalava.game.MissionTemplate.MovementManager;
+
 
 public class GameFrame extends JFrame {
 	
@@ -42,6 +44,7 @@ public class GameFrame extends JFrame {
 		
 		// Add mouse and key listeners here
 		this.addMouseListener(new MouseInteraction());
+		this.addMouseListener(new MovementManager());
 		this.add("Center", panel);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
