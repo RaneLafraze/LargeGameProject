@@ -8,6 +8,7 @@ public class MouseEventHandler implements MouseInputListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+	
 	}
 
 	@Override
