@@ -82,7 +82,14 @@ public class Options {
 					if((clickX > 535) && (clickX < 625) && (clickY > 405) && (clickY < 490)) {
 						
 						// Change the tile size to be smaller
-						GlobalVariables.tileSize = GlobalVariables.tileSize - 10;
+						GlobalVariables.tileSize = GlobalVariables.tileSize - 5;
+						GlobalVariables.mouseClickX = 0;
+						GlobalVariables.mouseClickY = 0;
+						
+					} else if((clickX > 835) && (clickX < 925) && (clickY > 405) && (clickY < 490)) {
+						
+						// Change the tile size to be larger
+						GlobalVariables.tileSize = GlobalVariables.tileSize + 5;
 						GlobalVariables.mouseClickX = 0;
 						GlobalVariables.mouseClickY = 0;
 						

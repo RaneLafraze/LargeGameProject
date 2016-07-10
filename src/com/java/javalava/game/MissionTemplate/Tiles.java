@@ -58,7 +58,7 @@ public class Tiles {
 	public void drawGrid() {
 		
 		int y = 0;
-		int shiftgridy = GlobalVariables.tileSize;
+		int shiftgridy = 30;
 		
 		gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
 		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
@@ -71,21 +71,19 @@ public class Tiles {
 			ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + shiftgridy, 210 + y, 30, 30);
 			y = y + 30;
 
+
 			ImageHandler.overlayImage(GlobalVariables.screen, grasstile, 400 + shiftgridy, 250 + y, GlobalVariables.tileSize, GlobalVariables.tileSize);
 			y = y + GlobalVariables.tileSize;
 
-			
+
 			
 			}
 			y=0;
 			this.width--;
 
-			shiftgridy = shiftgridy + 31;
-
 			shiftgridy = shiftgridy + GlobalVariables.tileSize;
 
 		}
-
 	}
 		
 }
