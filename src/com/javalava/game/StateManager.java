@@ -7,10 +7,6 @@ public class StateManager implements Runnable {
 	GameState gameState;
 	OptionState optionState;
 	
-	// TEMPORARY
-	// Used to switch states
-	private int counter = 0;
-	
 	/**
 	 * Manages the possible states of the game.
 	 * 
@@ -38,27 +34,6 @@ public class StateManager implements Runnable {
 				while(GlobalVariables.state == 1) {
 					gameState.update();
 					delay(5); // For stability
-					
-					counter++;
-					if(counter > 500) {
-						//GlobalVariables.state = 2;
-						counter = 0;
-					}
-					
-				}
-				
-			} else if(GlobalVariables.state == 2) {
-				
-				optionState.initalizeObjects();
-				while(GlobalVariables.state == 2) {
-					optionState.update();
-					delay(5); // For stability
-					
-					counter++;
-					if(counter > 500) {
-						GlobalVariables.state = 1;
-						counter = 0;
-					}
 				}
 				
 			}
