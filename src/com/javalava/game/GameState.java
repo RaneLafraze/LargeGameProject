@@ -11,7 +11,7 @@ public class GameState implements State {
 	public static BufferedImage grasstile;
 	public static BufferedImage gridgrasstile;
 	
-
+	MovementManager movement = new MovementManager();
 	
 	public GameState() {
 		
@@ -24,13 +24,20 @@ public class GameState implements State {
 		gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
 		
 		
+		
+		
 	}
 	
+	@Override
 	public void update() {
 		
+		
 		Tiles tiles = new Tiles();
+		Thread mouseUpdate = new Thread(new MovementManager());
 		tiles.setDimensions(4,4 );
 		tiles.drawGrid();
+		mouseUpdate.start();
+		
 		
 	}
 

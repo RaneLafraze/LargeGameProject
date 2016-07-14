@@ -1,71 +1,117 @@
 package com.java.javalava.game.MissionTemplate;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 
-import com.javalava.game.GameState;
 import com.javalava.game.GlobalVariables;
 import com.javalava.game.ImageHandler;
+import com.javalava.game.MouseInteraction;
 
-public class MovementManager implements MouseListener {
+public class MovementManager implements Runnable {
 
-	int shiftgridy;
-	int shiftgridx;
+	int shiftgridy = 0;
+	int shiftgridx = 0;
 	int y = 0;
 	
-	Thread mouseUpdate = new Thread();
+	private boolean ClickXGridTop = false;
+	private boolean ClickYGridTop = false;
 	
-	public void detectMouseClick(MouseEvent t) {
+	private boolean ClickXGridBot = false;
+	private boolean ClickYGridBot = false;
 	
-	 while(Tiles.width > 0) { 
-		 
-	for(int g=0;g<Tiles.height;g++) {
-		  				
-	if(GlobalVariables.mouseClickX < 400 + shiftgridy && GlobalVariables.mouseClickY < 210 + y) {
-		System.out.println("ayyay!");
-	}	   
-	 y = y + 30;
-	}
-		   
-	y=0;   
-	//this is used to end the while loop once the correct number of col has been generated
-	Tiles.width--;   
-	//this shifts the grid over 30 pixels to the right
-	shiftgridy = shiftgridy + 30;
-		  } 
-	 	mouseUpdate.start();
-		 
-		  
+	BufferedImage grasstile;
+	BufferedImage gridgrasstile;
+	BufferedImage exampleguy;
+	
+	
+	
+	
+	Tiles tile = new Tiles();
+	
+	/**
+	 * this method will continuously run, systematically checking each grid space, and checking for click updates
+	 * from the MouseInteraction() Class.
+	 * 
+	 * It will call the 
+	 * moveCharecter() method to update the graphics.
+	 * 
+	 * @author David
+	 */
+		
+	public void run() 
+	{
+
+	gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
+	grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
+	exampleguy = ImageHandler.getImage("assets/images/misc/Unit.png");
+
+	while(Tiles.width > 0) { 
+	
+		for(int g=0;g<Tiles.height;g++) {
+				  
+		if( GlobalVariables.mouseClickX > 400 + shiftgridy ) {
+			ClickXGridTop = true;
 		}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if( GlobalVariables.mouseClickY > 210 + y ) {
+			ClickXGridTop = true;
+		}
 		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if( GlobalVariables.mouseClickX < 400 + shiftgridy ) {
+			ClickXGridBot = true;
+		}
 		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if( GlobalVariables.mouseClickY < 210 + y ) {
+			ClickXGridBot = true;
+		}
 		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
+		y = y + 30;
+		}
+		
+		if(ClickXGridTop && ClickYGridTop && ClickXGridBot && ClickYGridBot) {
+			MovementManager manager = new MovementManager();
+			manager.moveCharecter();
+		}
+		
+		y=0;
+		Tiles.width--;
+		shiftgridy = shiftgridy + 31;
+			  }
+		
+		
+		
+	}	
+	/**
+	 * This method will look at the updated variables at the end of the run() for loop
+	 * method and draw a new image over the grid. 
+	 * 
+	 * @author David
+	 */
+	public void moveCharecter() {
+		
+		 while(Tiles.width > 0) { 
+			  for(int g=0;g<Tiles.height;g++) {
+			 //if the click is within this area
+			if( GlobalVariables.mouseClickX > 400 + shiftgridy && GlobalVariables.mouseClickY < 210 + y
+				&& GlobalVariables.mouseClickY > 210 + y && GlobalVariables.mouseClickX < 400 + shiftgridy ) {
+				//then draw that image onto the area that was previously specified
+				ImageHandler.overlayImage(grasstile, exampleguy, 400 + shiftgridy, 210 + y, 30, 30);
+			}
+	
+			y = y + 30;
+			}
+			y=0;
+			Tiles.width--;
+			shiftgridy = shiftgridy + 31;
+		 	}
+
 	}
 
 }
+	
+	
+	
+	
+	
+	
+

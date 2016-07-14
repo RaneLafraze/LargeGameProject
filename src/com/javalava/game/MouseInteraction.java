@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 public class MouseInteraction implements MouseListener {
 	
+
 	int clickX = 0;
 	int clickY = 0;
 	int buttonType = 0;
