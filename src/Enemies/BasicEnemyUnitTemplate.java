@@ -1,4 +1,7 @@
 package Enemies;
+
+import java.awt.image.BufferedImage;
+
 /**
  * This Class will serve as the basic unit template for all other Enemies.
  * It will include:
@@ -13,7 +16,8 @@ package Enemies;
  * @author Matt
  *
  */
-public interface BasicEnemyUnitTemplate {
+
+	public interface BasicEnemyUnitTemplate {
 	
 	
 	
@@ -47,6 +51,13 @@ public interface BasicEnemyUnitTemplate {
 	 */
 	
 	public void setStatistics(int Health, int Attack, int Defense, int Movement, int NetDmgTaken);
+	
+	/**
+	 * This method is used to set the unit's picture
+	 * 
+	 * @param image
+	 */
+	public void setUnitImage(BufferedImage UnitImage);
 	
 
 }

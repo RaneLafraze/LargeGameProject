@@ -29,7 +29,7 @@ public class Options {
 	 * @param optionName
 	 * the name of this option
 	 * 
-	 * @author Matt & Rane Lafraze
+	 * @author "Matt" & Rane Lafraze did all of it
 	 *
 	 */
 	public Options(String optionName) {

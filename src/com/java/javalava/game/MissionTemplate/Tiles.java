@@ -48,14 +48,14 @@ public class Tiles {
 		  while(width > 0) { 
 		  for(int g=0;g<height;g++) {
 		   //x position y position
-		   ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + shiftgridy, 210 + y, 30, 30);
-		   y = y + 30;
+		   ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + shiftgridy, 210 + y, 40, 40);
+		   y = y + 40;
 		   
 		   
 		   }
 		   y=0;
 		   width--;
-		   shiftgridy = shiftgridy + 31;
+		   shiftgridy = shiftgridy + 41;
 		  }
 		 
 		  
