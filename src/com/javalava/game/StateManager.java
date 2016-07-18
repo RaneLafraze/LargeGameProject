@@ -6,6 +6,7 @@ public class StateManager implements Runnable {
 	
 	GameState gameState;
 	OptionState optionState;
+	GridState gridState;
 	
 	// TEMPORARY
 	// Used to switch states
@@ -52,6 +53,22 @@ public class StateManager implements Runnable {
 				optionState.initalizeObjects();
 				while(GlobalVariables.state == 2) {
 					optionState.update();
+					delay(5); // For stability
+					
+					counter++;
+					if(counter > 500) {
+						GlobalVariables.state = 1;
+						counter = 0;
+					}
+				}
+				
+			}
+
+			else if(GlobalVariables.state == 2) {
+				
+				gridState.initalizeObjects();
+				while(GlobalVariables.state == 2) {
+					gridState.update();
 					delay(5); // For stability
 					
 					counter++;
