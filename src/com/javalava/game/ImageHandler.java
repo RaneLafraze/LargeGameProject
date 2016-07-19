@@ -99,7 +99,7 @@ public class ImageHandler {
 	 * @param baseImg
 	 * image that will be drawn on
 	 * @param overlayingImage
-	 * image that will be draw over the baseImg BufferedImage
+	 * image that will be drawn over the baseImg BufferedImage
 	 * @param x
 	 * the x position in relation to the BufferedImage
 	 * @param y

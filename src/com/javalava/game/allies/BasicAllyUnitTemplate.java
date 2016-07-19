@@ -20,5 +20,15 @@ public class BasicAllyUnitTemplate {
 	public final boolean UNPATHABLE_IS_BLOCKED = true;
 	
 	
+	
+	public void setProperties() 
+	{
+	
+	final boolean CANNOT_ATTACK_ENEMIES = true;
+	final boolean IS_ENEMY = true;
+	final boolean UNPATHABLE_IS_BLOCKED = true;
+	
+	}
+	
 
 }
