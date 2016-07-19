@@ -25,9 +25,14 @@ public class StateManager implements Runnable {
 		
 		while(GlobalVariables.state > -1) {
 			
+			
 			if(GlobalVariables.state == 1) {
 				
 				executeState(gameState);
+				
+			} else if(GlobalVariables.state == 2) {
+				
+				
 				
 			}
 			// Add more states here

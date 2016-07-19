@@ -62,6 +62,26 @@ public class ImageHandler {
 	}
 	
 	/**
+	 * TEMPORARY METHOD
+	 * @param base
+	 * @param x
+	 * @param y
+	 * @param x2
+	 * @param y2
+	 * @return
+	 */
+	public static BufferedImage drawSquare(BufferedImage base, int x, int y, int x2, int y2) {
+		
+		Graphics2D g2D = base.createGraphics();
+		g2D.setColor(Color.RED);
+		g2D.drawRect(x, y, x2 - x, y2 - y);
+		g2D.dispose();
+		
+		return base;
+		
+	}
+	
+	/**
 	 * Overlays, or draws, an image (gotten by a path) on top of another image.
 	 * 
 	 * @param bufferedImg

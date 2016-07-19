@@ -7,8 +7,8 @@ import com.javalava.game.ImageHandler;
 
 public class Tiles {
 
-	static int height;
-	static int width;
+	static int height = 0;
+	static int width = 0;
 	int gridsize;
 	BufferedImage grasstile;
 	BufferedImage gridgrasstile;
@@ -22,44 +22,44 @@ public class Tiles {
 	 * @author David
 	 */
 	public void setDimensions(int w,int h) {
-
-	height = h;
-	width = w;
+		
+		height = h;
+		width = w;
+		
 	}
 	
 	
 	public int getHeight() {
-		return this.height;
+		return height;
 	}
 	public int getWidth() {
-		return this.width;
+		return width;
 	}
 	
 	
 	public void drawGrid() {
-		  
-		  int y = 0;
-		  int shiftgridy = 30;
-		  
-		  gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
-		  grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
-		  
-		 
-		  while(width > 0) { 
-		  for(int g=0;g<height;g++) {
-		   //x position y position
-		   ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + shiftgridy, 210 + y, 30, 30);
-		   y = y + 30;
-		   
-		   
-		   }
-		   y=0;
-		   width--;
-		   shiftgridy = shiftgridy + 31;
-		  }
-		 
-		  
+		
+		int x = width * GlobalVariables.tileSize;
+		int y = height * GlobalVariables.tileSize;
+		
+		gridgrasstile = ImageHandler.getImage("assets/images/misc/GridGrass.png");
+		grasstile = ImageHandler.getImage("assets/images/misc/Grass.png");
+		
+		
+		while(x >= 0) {
+			while(y >= 0) {
+				
+				//x position y position
+				ImageHandler.overlayImage(GlobalVariables.screen, gridgrasstile, 400 + x, 210 + y, GlobalVariables.tileSize, GlobalVariables.tileSize);
+				y = y - GlobalVariables.tileSize;
+				
+			}
+			
+			y = height * GlobalVariables.tileSize;
+			x = x - GlobalVariables.tileSize;
 		}
+		
+	}
 		
 }
 
