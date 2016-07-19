@@ -97,7 +97,7 @@ public class MovementManager implements Runnable {
 				//then draw that image onto the area that was previously specified
 				ImageHandler.overlayImage(grasstile, exampleguy, 400 + shiftgridy, 210 + y, 30, 30);
 			}
-	
+			
 			y = y + 30;
 			}
 			y=0;
