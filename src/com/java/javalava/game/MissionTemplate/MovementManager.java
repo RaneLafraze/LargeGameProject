@@ -90,25 +90,10 @@ public class MovementManager {
 	 */
 	public BufferedImage moveCharecter() {
 		
-		 while(Tiles.width > 0) { 
-			 
-			  for(int g=0;g<Tiles.height;g++) {
-			 //if the click is within this area
-			if( GlobalVariables.mouseClickX > 400 + shiftgridy && GlobalVariables.mouseClickY < 210 + y
-				&& GlobalVariables.mouseClickY > 210 + y && GlobalVariables.mouseClickX < 400 + shiftgridy ) {
-				//then draw that image onto the area that was previously specified
-			returnguy = ImageHandler.overlayImage(GameState.grasstile, GameState.exampleguy, 400 + shiftgridy, 210 + y, 40, 40);
-			}
-	
-			y = y + 40;
-			}
-			y=0;
-			Tiles.width--;
-			shiftgridy = shiftgridy + 41;
-		 	}
-		 return returnguy;
-		 	
-
+		// Works since shiftgridx and shiftgridy are class-global variables
+		returnguy = ImageHandler.overlayImage(GameState.grasstile, GameState.exampleguy, 400 + shiftgridy, 210 + y, 40, 40);
+		return returnguy;
+		
 	}
 	
 	private void delay(int millis) {
