@@ -8,7 +8,6 @@ public class GridState implements State {
 	
 	// Objects needed in this state
 	MovementManager movement;
-	BufferedImage panel;
 	
 	// Variables needed in this state
 	
@@ -35,8 +34,6 @@ public class GridState implements State {
 	public void update() {
 		
 		movement.moveCharecter();
-		
-		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, panel, 0, 0, GlobalVariables.windowWidth, GlobalVariables.windowHeight);
 		
 	}
 
