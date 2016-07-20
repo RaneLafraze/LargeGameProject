@@ -2,7 +2,7 @@ package com.javalava.game;
 
 import javax.swing.JFrame;
 
-import com.java.javalava.game.MissionTemplate.MovementManager;
+import com.javalava.game.missionTemplate.MovementManager;
 
 
 public class GameFrame extends JFrame {

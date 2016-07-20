@@ -2,9 +2,9 @@ package com.javalava.game;
 
 import java.awt.image.BufferedImage;
 
-import com.java.javalava.game.MissionTemplate.PanelHandler;
-import com.java.javalava.game.MissionTemplate.MovementManager;
-import com.java.javalava.game.MissionTemplate.Tiles;
+import com.javalava.game.missionTemplate.MovementManager;
+import com.javalava.game.missionTemplate.PanelHandler;
+import com.javalava.game.missionTemplate.Tiles;
 
 public class GameState implements State {
 	
