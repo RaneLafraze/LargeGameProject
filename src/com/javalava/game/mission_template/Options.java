@@ -1,4 +1,4 @@
-package com.java.javalava.game.MissionTemplate;
+package com.javalava.game.mission_template;
 
 import java.awt.image.BufferedImage;
 
@@ -29,7 +29,7 @@ public class Options {
 	 * @param optionName
 	 * the name of this option
 	 * 
-	 * @author "Matt" & Rane Lafraze did all of it
+	 * @author Matt & Rane Lafraze
 	 *
 	 */
 	public Options(String optionName) {

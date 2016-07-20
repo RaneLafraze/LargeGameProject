@@ -7,10 +7,6 @@ public class StateManager implements Runnable {
 	GameState gameState;
 	OptionState optionState;
 	
-	// TEMPORARY
-	// Used to switch states
-	private int counter = 0;
-	
 	/**
 	 * Manages the possible states of the game.
 	 * 
@@ -29,37 +25,14 @@ public class StateManager implements Runnable {
 		
 		while(GlobalVariables.state > -1) {
 			
+			
 			if(GlobalVariables.state == 1) {
 				
-				gameState.initalizeObjects();
-				GlobalVariables.screen = new BufferedImage(GlobalVariables.windowWidth, GlobalVariables.windowHeight, BufferedImage.TYPE_4BYTE_ABGR_PRE);
-				// Clear the "screen" of any past drawings
-				
-				while(GlobalVariables.state == 1) {
-					gameState.update();
-					delay(5); // For stability
-					
-					counter++;
-					if(counter > 500) {
-						//GlobalVariables.state = 2;
-						counter = 0;
-					}
-					
-				}
+				executeState(gameState);
 				
 			} else if(GlobalVariables.state == 2) {
 				
-				optionState.initalizeObjects();
-				while(GlobalVariables.state == 2) {
-					optionState.update();
-					delay(5); // For stability
-					
-					counter++;
-					if(counter > 500) {
-						GlobalVariables.state = 1;
-						counter = 0;
-					}
-				}
+				
 				
 			}
 			// Add more states here
@@ -67,6 +40,23 @@ public class StateManager implements Runnable {
 			
 		}
 	}
+	
+	private void executeState(State state) {
+		
+		// Save the state to monitor when it changes
+		int currentState = GlobalVariables.state;
+		
+		GlobalVariables.screen = new BufferedImage(GlobalVariables.windowWidth, GlobalVariables.windowHeight, BufferedImage.TYPE_4BYTE_ABGR_PRE);
+		// Clear the "screen" of any past drawings
+		
+		state.initalizeObjects();
+		while(GlobalVariables.state == currentState) {
+			state.update();
+			delay(5); // For stability
+		}
+		
+	}
+	
 	
 	/**
 	 * Delays, or waits, for the given amount of milliseconds.

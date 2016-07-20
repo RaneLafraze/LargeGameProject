@@ -2,7 +2,7 @@ package com.javalava.game;
 
 import java.awt.image.BufferedImage;
 
-import com.java.javalava.game.MissionTemplate.Options;
+import com.javalava.game.mission_template.Options;
 
 public class OptionState implements State {
 	
