@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 public class StateManager implements Runnable {
 	
 	GameState gameState;
-	OptionState optionState;
 	
 	/**
 	 * Manages the possible states of the game.
@@ -16,7 +15,6 @@ public class StateManager implements Runnable {
 		
 		// Initialize the states here
 		gameState = new GameState();
-		optionState = new OptionState();
 		
 	}
 	
