@@ -16,7 +16,11 @@ public class GameFrame extends JFrame {
 	
 	/**
 	 * The main frame for the game. This should be initialized
-	 * in the main method.
+	 * in the main method. This is a swing component that is
+	 * the window for the game. It defines properties such
+	 * as window title, size, etc. A JPanel (GamePanel) will be added
+	 * to this; the GamePanel is where the drawing of the game's
+	 * graphics takes place.
 	 * 
 	 * @author Rane Lafraze
 	 */

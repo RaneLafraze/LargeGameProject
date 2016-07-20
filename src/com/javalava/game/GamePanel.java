@@ -13,7 +13,10 @@ public class GamePanel extends JPanel {
 	
 	/**
 	 * The main panel for the game. This includes the graphics
-	 * rendering method.
+	 * rendering method. This class does not need to be
+	 * modified. It simply draws one image (GlobalVariables.screen)
+	 * onto the computer screen. To add graphics to the game,
+	 * do so in a state.
 	 * 
 	 * @author Rane Lafraze
 	 */
