@@ -62,6 +62,30 @@ public class ImageHandler {
 	}
 	
 	/**
+	 * Gets the color of the pixel on the BufferedImage at the
+	 * specified coordinates. The BufferedImage is gotten by the
+	 * given path.
+	 * 
+	 * @param pathToImage
+	 * a path to the image in which the pixels will be tested
+	 * @param x
+	 * the horizontal place of the pixel
+	 * @param y
+	 * the vertical place of the pixel
+	 * @return
+	 * A Color object containing the color of the specified pixel
+	 * 
+	 * @author Rane Lafraze
+	 */
+	public static Color getPixelColorFromPath(String pathToImage, int x, int y) {
+		
+		BufferedImage img = getImage(pathToImage);
+		
+		Color pixelColor = new Color(img.getRGB(x, y));
+		return pixelColor;
+	}
+	
+	/**
 	 * TEMPORARY METHOD
 	 * @param base
 	 * @param x
