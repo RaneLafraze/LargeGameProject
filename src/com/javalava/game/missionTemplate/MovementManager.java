@@ -100,7 +100,7 @@ public class MovementManager {
 	 */
 	public void moveCharecter(int x, int y, int width, int height) {
 		
-		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, GameState.exampleguy, x, y, width, height);
+		GlobalVariables.screen = ImageHandler.overlayImage(GlobalVariables.screen, GlobalVariables.Unit, x, y, width, height);
 		
 	}
 	
