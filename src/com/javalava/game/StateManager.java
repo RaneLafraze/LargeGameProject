@@ -2,10 +2,13 @@ package com.javalava.game;
 
 import java.awt.image.BufferedImage;
 
+import com.javalava.game.states.GameState;
+import com.javalava.game.states.MenuState;
+
 public class StateManager implements Runnable {
 	
+	MenuState menuState;
 	GameState gameState;
-	OptionState optionState;
 	
 	/**
 	 * Manages the possible states of the game.
@@ -15,8 +18,8 @@ public class StateManager implements Runnable {
 	public StateManager() {
 		
 		// Initialize the states here
+		menuState = new MenuState();
 		gameState = new GameState();
-		optionState = new OptionState();
 		
 	}
 	
@@ -28,11 +31,11 @@ public class StateManager implements Runnable {
 			
 			if(GlobalVariables.state == 1) {
 				
-				executeState(gameState);
+				executeState(menuState);
 				
 			} else if(GlobalVariables.state == 2) {
 				
-				
+				executeState(gameState);
 				
 			}
 			// Add more states here
@@ -41,6 +44,18 @@ public class StateManager implements Runnable {
 		}
 	}
 	
+	/**
+	 * This method will execute the given State parameter. It will
+	 * first initialize the state's objects, and then continue to
+	 * run the update() method within State. This method will only
+	 * exit when the GlobalVariable's state variable changes.
+	 * Should be called in the run method.
+	 * 
+	 * @param state
+	 * the state object that shall be executed
+	 * 
+	 * @author Rane Lafraze
+	 */
 	private void executeState(State state) {
 		
 		// Save the state to monitor when it changes
