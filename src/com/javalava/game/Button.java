@@ -31,6 +31,8 @@ public class Button extends HUDElement {
 	 * the width of this button
 	 * @param height
 	 * the height of this button
+	 * 
+	 * @author Rane Lafraze
 	 */
 	public Button(String name, String path, int anDelay, int x, int y, int width, int height) {
 		super(name, path, anDelay, x, y, width, height);
@@ -51,6 +53,8 @@ public class Button extends HUDElement {
 	 * is indeed animated. It will also start a thread that
 	 * checks to see if the user clicks within the button's
 	 * area.
+	 * 
+	 * @author Rane Lafraze
 	 */
 	public void activateButton() {
 		startAnimation();
@@ -61,6 +65,8 @@ public class Button extends HUDElement {
 	 * Starts a thread that checks if the user's clicks are within
 	 * this button's boundary. If so, it will change state to
 	 * true.
+	 * 
+	 * @author Rane Lafraze
 	 */
 	private void checkForClicks() {
 		
@@ -68,7 +74,7 @@ public class Button extends HUDElement {
 			public void run() {
 				while(true) {
 					
-					if(isInBounds(GlobalVariables.clickX, GlobalVariables.clickY)) {
+					if(isInBounds(GlobalVariables.mouseClickX, GlobalVariables.mouseClickY)) {
 						state = true;
 						
 					}
@@ -81,6 +87,20 @@ public class Button extends HUDElement {
 		
 	}
 	
+	/**
+	 * Checks to see if the given coorindates are within this
+	 * button's "box"
+	 * 
+	 * @param x
+	 * the x position to check for
+	 * @param y
+	 * the y position to check for
+	 * @return
+	 * True if the (x,y) point is within this button. Otherwise,
+	 * false.
+	 * 
+	 * @author Rane Lafraze
+	 */
 	private boolean isInBounds(int x, int y) {
 		 // +23 for the top of the window
 		if((x > this.x) && (x < this.x + width) && (y > (this.y + 23)) && (y < (this.y + 23) + height)) {
@@ -95,6 +115,8 @@ public class Button extends HUDElement {
 	 * 
 	 * @param delay
 	 * the time, in milliseconds, to wait
+	 * 
+	 * @author Rane Lafraze
 	 */
 	private void delay(int delay) {
 		try {
@@ -104,19 +126,22 @@ public class Button extends HUDElement {
 		}
 	}
 	
+	// Though this is a get method, it isn't just returning
+	// the image.
+	@Override
+	public BufferedImage getAppearance() {
+		if(!isInBounds(GlobalVariables.mouseClickX, GlobalVariables.mouseClickY)) {
+			return super.getAppearance();
+		} else {
+			return ImageHandler.getImage("images/" + getAppearancePath() + "-hovering.png");
+		}
+	}
+	
 	// Get / Set methods
 	
 	public boolean getState() {
 		return state;
 	}
 	
-	@Override
-	public BufferedImage getAppearance() {
-		if(!isInBounds(GlobalVariables.mouseX, GlobalVariables.mouseY)) {
-			return super.getAppearance();
-		} else {
-			return ImageHandler.getImage("images/" + getAppearancePath() + "-hovering.png");
-		}
-	}
 	
 }
