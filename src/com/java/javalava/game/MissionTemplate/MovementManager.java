@@ -1,8 +1,8 @@
 package com.java.javalava.game.MissionTemplate;
 
-import com.javalava.game.GameState;
 import com.javalava.game.GlobalVariables;
 import com.javalava.game.ImageHandler;
+import com.javalava.game.states.GameState;
 
 public class MovementManager {
 
