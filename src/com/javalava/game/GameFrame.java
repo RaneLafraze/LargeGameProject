@@ -14,6 +14,7 @@ public class GameFrame extends JFrame {
 	
 	private GamePanel panel = new GamePanel();
 	
+	
 	/**
 	 * The main frame for the game. This should be initialized
 	 * in the main method.
