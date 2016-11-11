@@ -40,6 +40,8 @@ public class HUDElement {
 	 * the width of this element
 	 * @param height
 	 * the height of this element
+	 * 
+	 * @author Rane Lafraze
 	 */
 	public HUDElement(String name, String path, int delay, int x, int y, int width, int height) {
 		
@@ -55,6 +57,8 @@ public class HUDElement {
 	
 	/**
 	 * Loads the appearances of this element into the ArrayList.
+	 * 
+	 * @author Rane Lafraze
 	 */
 	protected void loadAppearance() {
 		
@@ -89,6 +93,8 @@ public class HUDElement {
 	 * the string to remove numbers from
 	 * @return
 	 * The original string without numbers.
+	 * 
+	 * @author Rane Lafraze
 	 */
 	private String removeNumbers(String str) {
 		
@@ -99,6 +105,13 @@ public class HUDElement {
 		return str;
 	}
 	
+	/**
+	 * This will run through the different images stored in the
+	 * appearanceList ArrayList. The rate is determined by the
+	 * animationDelay variable; the thread delays that loop.
+	 * 
+	 * @author Rane Lafraze
+	 */
 	protected void startAnimation() {
 		
 		Thread animation = new Thread() {
@@ -131,6 +144,8 @@ public class HUDElement {
 	 * 
 	 * @param delay
 	 * the time, in milliseconds, to wait
+	 * 
+	 * @author Rane Lafraze
 	 */
 	private void delay(int delay) {
 		try {
