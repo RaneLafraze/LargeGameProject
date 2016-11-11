@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
@@ -27,18 +29,22 @@ public class ImageHandler {
 	 */
 	public static BufferedImage getImage(String path) {
 		
-		// Prevents NullPointer
-		BufferedImage img = new BufferedImage(10, 10, BufferedImage.TYPE_4BYTE_ABGR_PRE);
-		File file = new File(path);
-
+		BufferedImage endImg = null;
+		InputStream in;
+		
 		try {
-			img = ImageIO.read(file);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println("The image at \"" + path + "\" could not be loaded properly.");
+			in = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
+			endImg = ImageIO.read(in);
+		} catch(IOException io) {
+			io.printStackTrace();
+			System.out.println("[WARNING]: Image file was not found at: " + path);
+		} catch(IllegalArgumentException ia) {
+			ia.printStackTrace();
+			System.out.println("[WARNING]: Image file was not found at: " + path);
 		}
 		
-		return img;
+		return endImg;
+		
 	}
 	
 	/**
