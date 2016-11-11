@@ -21,7 +21,13 @@ public class GameState implements State {
 	public static BufferedImage exampleguy;
 	
 	public static BufferedImage BasicPanel;
-
+	
+	/**
+	 * This state will control the main action and game play of
+	 * the game.
+	 * 
+	 * @author Rane Lafraze
+	 */
 	public GameState() {
 		
 	}
